@@ -1,0 +1,164 @@
+
+Exercise 1: Basic Git Workflow
+
+    1. Create a new directory and initialize Git
+
+        mkdir git-practice
+        cd git-practice
+        git init
+
+    2. Create a README.md file
+
+        echo "# Git Practice" > README.md
+
+    3. Add and commit the file
+
+        git add README.md
+        git commit -m "Initial commit: add README"
+
+    4. Make changes and commit again
+
+        echo "Learning basic Git workflow" >> README.md
+        git add README.md
+        git commit -m "Update README with description"
+
+    5. View commit history
+
+        git log --oneline
+
+-------------------------------------------------------------------------------
+
+Exercise 2: Branching and Merging
+
+    1. Create a new branch called feature
+
+        git branch feature
+        git checkout feature
+
+    2. Add new files in the feature branch
+
+        echo "Feature work" > feature.txt
+        git add feature.txt
+        git commit -m "Add feature file"
+
+    3. Switch back to main branch
+
+        git checkout main
+
+    4. Merge feature branch into main
+
+        git merge feature
+
+    5. Delete the feature branch
+
+        git branch -d feature
+
+--------------------------------------------------------------------------------
+
+Exercise 3: Conflict Resolution
+
+    1. Create two branches from main
+
+        git checkout -b branch1
+        echo "Change from branch1" > conflict.txt
+        git add conflict.txt
+        git commit -m "Branch1 change"
+        git checkout main
+        git checkout -b branch2
+        echo "Change from branch2" > conflict.txt
+        git add conflict.txt
+        git commit -m "Branch2 change"
+
+    2. Merge one branch into main
+
+        git checkout main
+        git merge branch1
+
+    3. Attempt to merge the second branch (conflict)
+
+        git merge branch2
+
+    4. Resolve the conflict manually
+
+        <<<<<<< HEAD
+        Change from branch1
+        =======
+        Change from branch2
+        >>>>>>> branch2
+
+        Change from branch1 and branch2
+
+        git add conflict.txt
+        git commit -m "Resolve merge conflict"
+
+-------------------------------------------------------------------------------
+
+Exercise 4: GitHub Collaboration
+
+    1. Fork a sample repository on GitHub
+
+        Click Fork on GitHub
+
+    2. Clone it locally
+
+        git clone https://github.com/YOUR_USERNAME/repo-name.git
+        cd repo-name
+
+    3. Create a new branch
+
+        git checkout -b my-feature
+
+    4. Make changes and push to your fork
+
+        echo "My contribution" >> README.md
+        git add README.md
+        git commit -m "Add my contribution"
+        git push origin my-feature
+
+    5. Create a Pull Request
+
+        Go to GitHub → Compare & Pull Request → Submit PR
+
+---------------------------------------------------------------------------------
+
+Exercise 5: Advanced Workflow
+
+    1. Initialize a repository with multiple files
+
+        mkdir advanced-git
+        cd advanced-git
+        git init
+        touch app.js index.html style.css
+        git add .
+        git commit -m "Initial project setup"
+
+    2. Create a .gitignore file
+
+        echo "node_modules/" > .gitignore
+        echo ".env" >> .gitignore
+        git add .gitignore
+        git commit -m "Add gitignore"
+
+    3. Use git stash to save work in progress
+
+        echo "WIP code" >> app.js
+        git stash
+
+        git stash pop
+
+    4. Create and tag a release
+
+        git tag v1.0
+
+    5. Push everything to GitHub including tags
+
+        git remote add origin https://github.com/YOUR_USERNAME/advanced-git.git
+        git push origin main
+        git push origin --tags
+
+
+
+
+
+
+
