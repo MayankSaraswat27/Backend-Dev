@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>User List</h1>
+
+<form>
+  <input name="name" placeholder="Search by name">
+  <button type="submit">Search</button>
+</form>
+
+<ul>
+  <% users.forEach(u => { %>
+    <li><%= u.name %> - Age <%= u.age %></li>
+  <% }) %>
+</ul>
+
+</body>
+</html>
