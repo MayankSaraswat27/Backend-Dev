@@ -8,6 +8,36 @@ export const getAllUsers = async(req,res)=>{
             users
         })
     }catch(error){
-        console.log("cant get user", error)
+        res.status(500).json({
+            success:false,
+            message:"Something went wrong"
+        })
     }
 }
+
+export const createUser = async(req,res)=>{
+    try{
+        const { name, email, password, role } = req.body;
+        if (!name || !email || !password) {
+            return res.status(400).json({
+                success: false,
+                message: "All required fields must be filled"
+            });
+        }
+        const newUser = await user.create({
+            name,
+            email,
+            password,
+            role
+        });
+
+        res.status(201).json({
+            success: true,
+            message: "User created successfully",
+            newUser
+        });
+    }catch(error){
+        console.log("Error creating user:", error);
+    }
+}
+
