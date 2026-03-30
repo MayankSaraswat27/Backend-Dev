@@ -1,0 +1,5 @@
+INFO Server started
+INFO Database connected
+ERROR Connection timeout
+INFO Request processed
+ERROR Invalid token
