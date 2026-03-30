@@ -1,0 +1,16 @@
+
+1.SQL databases are relational, structured into tables with fixed schemas, and use SQL for queries. They excel at complex joins and transactions (e.g., MySQL, PostgreSQL). NoSQL databases are non-relational, schema-flexible, and store data in formats like documents, key-value pairs, or graphs (e.g., MongoDB, Cassandra). They are better suited for handling large-scale, unstructured, or rapidly changing data.
+
+2.The CAP theorem states that in a distributed system, you can only guarantee two of the following three: Consistency, Availability, and Partition Tolerance. Because network partitions are unavoidable, systems must choose between consistency (all nodes agree) and availability (every request gets a response). For example, MongoDB prioritizes availability and partition tolerance, sometimes sacrificing strict consistency.
+
+3.Applications need flexible schemas, such as product catalogs where attributes vary.
+  Systems must scale horizontally to handle massive traffic, like social media platforms.
+ Data is semi-structured or unstructured, such as logs, sensor data, or user-generated content.
+
+4.MongoDB uses BSON (Binary JSON) internally instead of plain JSON because BSON supports additional data types (like dates and binary data), is more efficient for encoding/decoding, and allows faster traversal. This makes queries and storage more optimized compared to text-based JSON.
+
+5. db.students.find({
+  gpa: { $gt: 3.5 },
+  courses: "CS101"
+})
+

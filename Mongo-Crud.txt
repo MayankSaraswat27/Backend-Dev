@@ -1,0 +1,11 @@
+1.Mongoose provides a higher-level abstraction with schema-based modeling, validation, and middleware support, making it easier to enforce structure and business logic. Unlike the native driver, which only offers raw database operations, Mongoose helps developers define models, relationships, and constraints in a more organized way, reducing boilerplate code.
+
+
+2.findOneAndUpdate() finds a single document, updates it, and returns the updated document (or the original, depending on options). It’s useful when you need the updated record immediately. updateOne() updates the first matching document but does not return the updated document—only a result object with details of the operation.
+
+3.Middleware in Mongoose allows you to run logic before or after certain operations (like saving, validating, or removing documents). It’s commonly used for tasks such as hashing passwords before saving, logging queries, or enforcing rules consistently across models.
+
+4.db.students.find().skip(page * limit).limit(limit)
+
+5.Embedding: Store related data inside a single document. Best for tightly coupled data that is read together often (e.g., a blog post with embedded comments).
+Referencing: Store related data in separate collections and link them via IDs. Best for loosely coupled data, large datasets, or when relationships are complex (e.g., users and orders).
