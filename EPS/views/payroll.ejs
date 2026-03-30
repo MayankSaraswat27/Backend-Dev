@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Payroll</title>
+</head>
+<body>
+
+<h2>Employee Payroll</h2>
+
+<p><strong>Name:</strong> <%= emp.name %></p>
+<p><strong>Department:</strong> <%= emp.department %></p>
+
+<hr>
+
+<p>Basic Salary: ₹ <%= salary.basic %></p>
+<p>HRA (20%): ₹ <%= salary.HRA %></p>
+<p>DA (10%): ₹ <%= salary.DA %></p>
+<p>PF (5%): ₹ <%= salary.PF %></p>
+
+<h3>Net Salary: ₹ <%= salary.netSalary %></h3>
+
+<br>
+<a href="/employee">⬅ Back to List</a>
+
+</body>
+</html>
