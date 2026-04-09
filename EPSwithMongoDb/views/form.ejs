@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add Employee</title>
+  <style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    margin: 0;
+    padding: 0;
+  }
+
+  h2 {
+    text-align: center;
+    margin-top: 30px;
+    color: #333;
+  }
+
+  form {
+    width: 420px;
+    margin: 30px auto;
+    background: #ffffff;
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  label {
+    font-weight: bold;
+    display: block;
+    margin-top: 12px;
+    color: #444;
+  }
+
+  input[type="text"],
+  input[type="date"],
+  select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: border 0.2s, box-shadow 0.2s;
+  }
+
+  input:focus,
+  select:focus {
+    border-color: #4cafef;
+    box-shadow: 0 0 4px rgba(76, 175, 239, 0.4);
+    outline: none;
+  }
+
+  .gender-group {
+    margin-top: 8px;
+  }
+
+  .gender-group label {
+    font-weight: normal;
+    margin-right: 15px;
+  }
+
+  button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background: #2ecc71;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  button:hover {
+    background: #27ae60;
+  }
+
+  .back-link {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #3498db;
+    text-decoration: none;
+  }
+
+  .back-link:hover {
+    text-decoration: underline;
+  }
+</style>
+
+</head>
+<body>
+
+<h2>Employee Payroll Form</h2>
+
+<form method="POST"
+      action="<%= employee ? '/employee/update/' + employee._id : '/employee/add' %>">
+
+  Name:
+  <input type="text" name="name" value="<%= employee?.name || '' %>" required>
+  <br><br>
+
+  <label>Profile Picture:</label><br>
+
+<label>
+  <input type="radio" name="profile" value="/images/avatar1.png"
+    <%= employee?.profile === '/images/avatar1.png' ? 'checked' : '' %> required>
+  <img src="/images/avatar1.png" width="60" style="border-radius:50%;">
+</label>
+
+<label>
+  <input type="radio" name="profile" value="/images/avatar2.png"
+    <%= employee?.profile === '/images/avatar2.png' ? 'checked' : '' %>>
+  <img src="/images/avatar2.png" width="60" style="border-radius:50%;">
+</label>
+
+<br><br>
+  
+  <label>Gender:</label>
+<div class="gender-group">
+  <label>
+    <input type="radio" name="gender" value="Male"
+      <%= employee?.gender === 'Male' ? 'checked' : '' %>> Male
+  </label>
+
+  <label>
+    <input type="radio" name="gender" value="Female"
+      <%= employee?.gender === 'Female' ? 'checked' : '' %>> Female
+  </label>
+</div>
+
+  <br><br>
+
+  Department:
+  <input type="text" name="department"
+       value="<%= employee?.department || '' %>" required>
+
+  Salary:
+  <select name="basicSalary" required>
+  <option value="">Select</option>
+  <option value="10000" <%= employee?.basicSalary == 10000 ? 'selected' : '' %>>10000</option>
+  <option value="20000" <%= employee?.basicSalary == 20000 ? 'selected' : '' %>>20000</option>
+  <option value="30000" <%= employee?.basicSalary == 30000 ? 'selected' : '' %>>30000</option>
+</select>
+  <br><br>
+
+  Joining Date:
+  <input type="date" name="joiningDate"
+       value="<%= employee?.joiningDate ? employee.joiningDate.toISOString().split('T')[0] : '' %>" required>
+  <br><br>
+
+  <button type="submit">
+  <%= employee ? 'Update Employee' : 'Add Employee' %>
+</button>
+</form>   
+
+<br>
+<a href="/employee" class="back-link">Back to List</a>
+
+
+</body>
+</html>
